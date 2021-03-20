@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -29,7 +29,6 @@ package com.iluwatar.business.delegate;
 public class BusinessDelegate {
 
   private BusinessLookup lookupService;
-  private BusinessService businessService;
   private ServiceType serviceType;
 
   public void setLookupService(BusinessLookup businessLookup) {
@@ -41,7 +40,7 @@ public class BusinessDelegate {
   }
 
   public void doTask() {
-    businessService = lookupService.getBusinessService(serviceType);
+    BusinessService businessService = lookupService.getBusinessService(serviceType);
     businessService.doProcessing();
   }
 }

@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,9 +23,12 @@
 
 package com.iluwatar.business.delegate;
 
+import lombok.Setter;
+
 /**
  * Class for performing service lookups.
  */
+@Setter
 public class BusinessLookup {
 
   private EjbService ejbService;
@@ -44,13 +47,5 @@ public class BusinessLookup {
     } else {
       return jmsService;
     }
-  }
-
-  public void setJmsService(JmsService jmsService) {
-    this.jmsService = jmsService;
-  }
-
-  public void setEjbService(EjbService ejbService) {
-    this.ejbService = ejbService;
   }
 }

@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,8 +24,7 @@
 package com.iluwatar.bytecode;
 
 import com.iluwatar.bytecode.util.InstructionConverterUtil;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * The intention of Bytecode pattern is to give behavior the flexibility of data by encoding it as
@@ -40,8 +39,8 @@ import org.slf4j.LoggerFactory;
  * ensure the behavior being defined can’t break the game, you need to sandbox it from the rest of
  * the codebase.
  */
+@Slf4j
 public class App {
-  private static final Logger LOGGER = LoggerFactory.getLogger(App.class);
 
   /**
    * Main app method.
@@ -58,12 +57,14 @@ public class App {
     var vm = new VirtualMachine();
     vm.getWizards()[0] = wizard;
 
-    interpretInstruction("LITERAL 0", vm);
-    interpretInstruction("LITERAL 0", vm);
+    String literal = "LITERAL 0";
+
+    interpretInstruction(literal, vm);
+    interpretInstruction(literal, vm);
     interpretInstruction("GET_HEALTH", vm);
-    interpretInstruction("LITERAL 0", vm);
+    interpretInstruction(literal, vm);
     interpretInstruction("GET_AGILITY", vm);
-    interpretInstruction("LITERAL 0", vm);
+    interpretInstruction(literal, vm);
     interpretInstruction("GET_WISDOM ", vm);
     interpretInstruction("ADD", vm);
     interpretInstruction("LITERAL 2", vm);

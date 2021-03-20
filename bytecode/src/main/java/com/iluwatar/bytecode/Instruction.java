@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,9 +23,14 @@
 
 package com.iluwatar.bytecode;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
 /**
  * Representation of instructions understandable by virtual machine.
  */
+@AllArgsConstructor
+@Getter
 public enum Instruction {
 
   LITERAL(1),
@@ -40,15 +45,7 @@ public enum Instruction {
   ADD(10),
   DIVIDE(11);
 
-  private final int value;
-
-  Instruction(int value) {
-    this.value = value;
-  }
-
-  public int getIntValue() {
-    return value;
-  }
+  private final int intValue;
 
   /**
    * Converts integer value to Instruction.
